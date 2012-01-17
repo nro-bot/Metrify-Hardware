@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# AvrStudio Solution File, Format Version 11.00
+Project("{D1100916-62DA-4D80-A9B4-55A1E7CCEEB3}") = "metroidFirmware", "metroidFirmware\metroidFirmware.avrgccproj", "{12ED5711-9514-48FB-804C-64198A8659DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12ED5711-9514-48FB-804C-64198A8659DC}.Debug|AVR.ActiveCfg = Debug|AVR
+		{12ED5711-9514-48FB-804C-64198A8659DC}.Debug|AVR.Build.0 = Debug|AVR
+		{12ED5711-9514-48FB-804C-64198A8659DC}.Release|AVR.ActiveCfg = Release|AVR
+		{12ED5711-9514-48FB-804C-64198A8659DC}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

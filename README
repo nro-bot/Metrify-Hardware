@@ -1,6 +1,14 @@
-10 Jan 2012: This repo is for the hardware files (eagle, firmware) for the Metrify project. 
+13 Jan 2012: ordered boards
+10 Jan 2012: This repo is for the hardware files (eagle, firmware) for the Metrify project. Eagle version 6 used (not compatible with eagle v5 files)
+
 
 Time span: January 2012 (IAP).
 Hardware team members: mark spatz (mspatz), nancy ouyang (nouyang)
 Software members: Diyang Tang (dydt), Cathy Wu (cathywu)
-Trollololol
+
+Everything in this git repo is in the public domain. Specifically, the license.txt is 
+CC0 -- creative commons zero -- 1.0 licensed.
+http://creativecommons.org/publicdomain/zero/1.0/
+My summary is, do whatever the heck you want with the stuff in here. As a personal favor, if you let us know what's up that'd be great.
+Cheers,
+--Nancy
