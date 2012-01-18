@@ -19,13 +19,22 @@
 #include "nRF24L01_lib.h"
 
 
+
 int main(void)
 {
-	//setup radio for transmission
-	
+//Initialize pins
+ init_24L01_pins();
 	
     while(1)
     {
-        //TODO:: Please write your application code 
+        //continually transmit
+		config_tx_nRF24L01();
+		data_array[0] = 0b01001000;//rf_tx_array[0];
+		data_array[1] = 0b01000001;//rf_tx_array[1];
+		data_array[2] = 0b01001001;//rf_tx_array[2];
+		data_array[3] = 0b10100000;//rf_tx_array[3];
+		tx_data_nRF24L01();
+		config_rx_nRF24L01();
+		delay_ms(500);	
     }
 }

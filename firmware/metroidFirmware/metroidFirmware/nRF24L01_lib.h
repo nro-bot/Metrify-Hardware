@@ -25,6 +25,8 @@
 #define RF_DELAY	5
 
 uint8_t data_array[5];
+uint8_t rf_rx_array[4];
+uint8_t rf_tx_array[4];
 
 //Initializes ATMega168 pins
 void init_24L01_pins(void);
@@ -60,7 +62,7 @@ void init_24L01_pins(void)
 {
 	//1 = Output, 0 = Input
 	L01_PORT_DD |= ((1<<MOSI) | (1<<L01_SCK));
-	L01_AUX_DD	|= ((1<<L01_CE)| (1<<L01_CSN));
+	L01_AUX_DD	|= ((1<<L01_CE) | (1<<L01_CSN));
 
 	//Enable pull-up resistors (page 74)
 	L01_PORT = 0b11111111;
