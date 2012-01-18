@@ -61,12 +61,21 @@
     <GenerateEepFile>True</GenerateEepFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="delays.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nRF24L01_lib.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="SPI.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="metroidFirmware.c">
       <SubType>compile</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Debug\" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\AvrGCC.targets" />
 </Project>
