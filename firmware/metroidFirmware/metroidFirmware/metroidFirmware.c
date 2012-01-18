@@ -15,9 +15,9 @@
 #define cbi(var, mask)   ((var) &= (uint8_t)(~(1 << mask)))
 
 
+#include "delays.h"
+#include "nRF24L01_lib.h"
 
-#include nRF24L01_lib.c
-#include delays.c
 
 int main(void)
 {

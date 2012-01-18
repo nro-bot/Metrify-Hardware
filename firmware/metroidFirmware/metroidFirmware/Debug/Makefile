@@ -45,8 +45,6 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../delays.c \
-../nRF24L01_lib.c \
 ../metroidFirmware.c
 
 
@@ -57,26 +55,18 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-delays.o \
-nRF24L01_lib.o \
 metroidFirmware.o
 
 
 OBJS_AS_ARGS +=  \
-delays.o \
-nRF24L01_lib.o \
 metroidFirmware.o
 
 
 C_DEPS +=  \
-delays.d \
-nRF24L01_lib.d \
 metroidFirmware.d
 
 
 C_DEPS_AS_ARGS +=  \
-delays.d \
-nRF24L01_lib.d \
 metroidFirmware.d
 
 
@@ -107,10 +97,6 @@ ADDITIONAL_DEPENDENCIES:= $(HEX_FLASH_FILE_PATH) $(LSS_FILE_PATH) $(HEX_EEPROM_F
 OUTPUT_FILE_DEP:= ./makedep.mk
 
 # AVR/GNU C Compiler
-
-
-
-
 
 
 

@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 Project("{D1100916-62DA-4D80-A9B4-55A1E7CCEEB3}") = "metroidFirmware", "metroidFirmware\metroidFirmware.avrgccproj", "{12ED5711-9514-48FB-804C-64198A8659DC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FAA6E9D3-B3D0-42A2-B284-E68C6F0312CD}"
-	ProjectSection(SolutionItems) = preProject
-		metroidFirmware\delays.c = metroidFirmware\delays.c
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

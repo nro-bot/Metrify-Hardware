@@ -61,10 +61,10 @@
     <GenerateEepFile>True</GenerateEepFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="delays.c">
+    <Compile Include="delays.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="nRF24L01_lib.c">
+    <Compile Include="nRF24L01_lib.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="SPI.h">

@@ -10,11 +10,11 @@
 
 #define L01_PORT		PORTB
 #define L01_PORT_PIN	PINB
-#define L01_PORT_DD	DDRB
+#define L01_PORT_DD		DDRB
 #define L01_IRQ_PORT	PIND
-#define L01_AUX_DD DDRD
-#define L01_AUX_PORT PORTD
-
+#define L01_AUX_DD		DDRD
+#define L01_AUX_PORT	PORTD
+	
 #define L01_CE	6 //Output
 #define L01_CSN	1 //Output
 #define L01_SCK	5 //Output
@@ -59,8 +59,8 @@ uint8_t tx_spi_byte(uint8_t outgoing);
 void init_24L01_pins(void)
 {
 	//1 = Output, 0 = Input
-	L01_PORT_DD |= (1<<MOSI) | (1<<L01_SCK));
-	L01_AUX_DD	|= (1<<L01_CE)| (1<<L01_CSN)
+	L01_PORT_DD |= ((1<<MOSI) | (1<<L01_SCK));
+	L01_AUX_DD	|= ((1<<L01_CE)| (1<<L01_CSN));
 
 	//Enable pull-up resistors (page 74)
 	L01_PORT = 0b11111111;
