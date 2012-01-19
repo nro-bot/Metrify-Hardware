@@ -6,12 +6,17 @@ import time
 
 s = serial.Serial("/dev/ttyUSB0", 9600) 
 f = open("sensorData.txt", "w")
+buttonState = 0
 while True:
-        x = s.read()
+        x = s.readline().split()
+	if x != buttonState:
         #print(x)  
 	#timestampData = str(datetime.datetime.now()) + ',' + str(x) + '\n'
-	timestampData = int(time.time()) + ',' + str(x) + '\n'
-        f.write(str(timestampData))
+		buttonState = x
+		timestampData = str(int(time.time())) + ',' + ''.join(x) + '\n'
+		f.write(timestampData)
+	#if len(timestampData) > 0:
+	#	f.write(timestampData)
         f.flush()
         os.fsync(f)
 f.close()

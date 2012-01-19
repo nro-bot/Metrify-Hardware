@@ -9,12 +9,13 @@ value = 0
 
 
 while 1:
-    value = ser.read();
+    value = str(ser.readline())
+    value.split()
     #line = ser.readline();
-    print value
-    if value == "x":
-#        tkMessageBox.showwarning("BLAH", "BLAH\n")
-        exit()
+    if value is not None and len(value) > 0:
+    	print value
+#       tkMessageBox.showwarning("BLAH", "BLAH\n")
     else:
         continue
+
 
