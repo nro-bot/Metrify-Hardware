@@ -3,13 +3,13 @@ metroidFirmware.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         0000035a  00000000  00000000  00000074  2**1
+  0 .text         00000426  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .bss          0000000d  00800100  00800100  000003ce  2**0
+  1 .bss          00000013  00800100  00800100  0000049a  2**0
                   ALLOC
-  2 .stab         000006cc  00000000  00000000  000003d0  2**2
+  2 .stab         00000954  00000000  00000000  0000049c  2**2
                   CONTENTS, READONLY, DEBUGGING
-  3 .stabstr      00000085  00000000  00000000  00000a9c  2**0
+  3 .stabstr      0000014d  00000000  00000000  00000df0  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -60,11 +60,11 @@ Disassembly of section .text:
   7c:	1d 92       	st	X+, r1
 
 0000007e <.do_clear_bss_start>:
-  7e:	ad 30       	cpi	r26, 0x0D	; 13
+  7e:	a3 31       	cpi	r26, 0x13	; 19
   80:	b1 07       	cpc	r27, r17
   82:	e1 f7       	brne	.-8      	; 0x7c <.do_clear_bss_loop>
   84:	0e 94 8c 01 	call	0x318	; 0x318 <main>
-  88:	0c 94 ab 01 	jmp	0x356	; 0x356 <_exit>
+  88:	0c 94 11 02 	jmp	0x422	; 0x422 <_exit>
 
 0000008c <__bad_interrupt>:
   8c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -180,7 +180,7 @@ Disassembly of section .text:
  164:	06 2f       	mov	r16, r22
  166:	59 98       	cbi	0x0b, 1	; 11
  168:	0e 94 76 00 	call	0xec	; 0xec <tx_spi_byte>
- 16c:	c4 e0       	ldi	r28, 0x04	; 4
+ 16c:	c6 e0       	ldi	r28, 0x06	; 6
  16e:	d1 e0       	ldi	r29, 0x01	; 1
  170:	10 e0       	ldi	r17, 0x00	; 0
  172:	04 c0       	rjmp	.+8      	; 0x17c <tx_send_payload+0x20>
@@ -217,11 +217,11 @@ Disassembly of section .text:
  1b8:	62 e0       	ldi	r22, 0x02	; 2
  1ba:	0e 94 9c 00 	call	0x138	; 0x138 <send_command>
  1be:	87 ee       	ldi	r24, 0xE7	; 231
- 1c0:	80 93 04 01 	sts	0x0104, r24
- 1c4:	80 93 05 01 	sts	0x0105, r24
- 1c8:	80 93 06 01 	sts	0x0106, r24
- 1cc:	80 93 07 01 	sts	0x0107, r24
- 1d0:	80 93 08 01 	sts	0x0108, r24
+ 1c0:	80 93 06 01 	sts	0x0106, r24
+ 1c4:	80 93 07 01 	sts	0x0107, r24
+ 1c8:	80 93 08 01 	sts	0x0108, r24
+ 1cc:	80 93 09 01 	sts	0x0109, r24
+ 1d0:	80 93 0a 01 	sts	0x010A, r24
  1d4:	80 e3       	ldi	r24, 0x30	; 48
  1d6:	65 e0       	ldi	r22, 0x05	; 5
  1d8:	0e 94 ae 00 	call	0x15c	; 0x15c <tx_send_payload>
@@ -258,7 +258,7 @@ Disassembly of section .text:
  21e:	ec 01       	movw	r28, r24
  220:	10 e0       	ldi	r17, 0x00	; 0
  222:	09 c0       	rjmp	.+18     	; 0x236 <transmit_string+0x1e>
- 224:	80 93 05 01 	sts	0x0105, r24
+ 224:	80 93 07 01 	sts	0x0107, r24
  228:	0e 94 f6 00 	call	0x1ec	; 0x1ec <tx_data_nRF24L01>
  22c:	85 e0       	ldi	r24, 0x05	; 5
  22e:	90 e0       	ldi	r25, 0x00	; 0
@@ -270,7 +270,7 @@ Disassembly of section .text:
  23c:	80 81       	ld	r24, Z
  23e:	88 23       	and	r24, r24
  240:	89 f7       	brne	.-30     	; 0x224 <transmit_string+0xc>
- 242:	10 92 05 01 	sts	0x0105, r1
+ 242:	10 92 07 01 	sts	0x0107, r1
  246:	0e 94 f6 00 	call	0x1ec	; 0x1ec <tx_data_nRF24L01>
  24a:	85 e0       	ldi	r24, 0x05	; 5
  24c:	90 e0       	ldi	r25, 0x00	; 0
@@ -326,7 +326,7 @@ Disassembly of section .text:
  2b8:	0e 94 48 00 	call	0x90	; 0x90 <delay_us>
  2bc:	01 50       	subi	r16, 0x01	; 1
  2be:	19 f4       	brne	.+6      	; 0x2c6 <rx_data_nRF24L01+0x3e>
- 2c0:	c0 e0       	ldi	r28, 0x00	; 0
+ 2c0:	c2 e0       	ldi	r28, 0x02	; 2
  2c2:	d1 e0       	ldi	r29, 0x01	; 1
  2c4:	19 c0       	rjmp	.+50     	; 0x2f8 <rx_data_nRF24L01+0x70>
  2c6:	11 0f       	add	r17, r17
@@ -349,7 +349,7 @@ Disassembly of section .text:
  2ec:	71 f7       	brne	.-36     	; 0x2ca <rx_data_nRF24L01+0x42>
  2ee:	19 93       	st	Y+, r17
  2f0:	81 e0       	ldi	r24, 0x01	; 1
- 2f2:	c4 30       	cpi	r28, 0x04	; 4
+ 2f2:	c6 30       	cpi	r28, 0x06	; 6
  2f4:	d8 07       	cpc	r29, r24
  2f6:	19 f0       	breq	.+6      	; 0x2fe <rx_data_nRF24L01+0x76>
  2f8:	08 e0       	ldi	r16, 0x08	; 8
@@ -368,31 +368,132 @@ Disassembly of section .text:
  316:	08 95       	ret
 
 00000318 <main>:
- 318:	ef 92       	push	r14
- 31a:	ff 92       	push	r15
- 31c:	0f 93       	push	r16
- 31e:	1f 93       	push	r17
- 320:	0e 94 6c 00 	call	0xd8	; 0xd8 <init_24L01_pins>
- 324:	98 e4       	ldi	r25, 0x48	; 72
- 326:	e9 2e       	mov	r14, r25
- 328:	81 e4       	ldi	r24, 0x41	; 65
+ 318:	ff 92       	push	r15
+ 31a:	0f 93       	push	r16
+ 31c:	1f 93       	push	r17
+ 31e:	0e 94 6c 00 	call	0xd8	; 0xd8 <init_24L01_pins>
+ 322:	8f ef       	ldi	r24, 0xFF	; 255
+ 324:	88 b9       	out	0x08, r24	; 8
+ 326:	10 e0       	ldi	r17, 0x00	; 0
+ 328:	8a e0       	ldi	r24, 0x0A	; 10
  32a:	f8 2e       	mov	r15, r24
- 32c:	09 e4       	ldi	r16, 0x49	; 73
- 32e:	10 ea       	ldi	r17, 0xA0	; 160
- 330:	0e 94 c6 00 	call	0x18c	; 0x18c <config_tx_nRF24L01>
- 334:	e0 92 04 01 	sts	0x0104, r14
- 338:	f0 92 05 01 	sts	0x0105, r15
- 33c:	00 93 06 01 	sts	0x0106, r16
- 340:	10 93 07 01 	sts	0x0107, r17
- 344:	0e 94 f6 00 	call	0x1ec	; 0x1ec <tx_data_nRF24L01>
- 348:	0e 94 2d 01 	call	0x25a	; 0x25a <config_rx_nRF24L01>
- 34c:	84 ef       	ldi	r24, 0xF4	; 244
- 34e:	91 e0       	ldi	r25, 0x01	; 1
- 350:	0e 94 52 00 	call	0xa4	; 0xa4 <delay_ms>
- 354:	ed cf       	rjmp	.-38     	; 0x330 <main+0x18>
+ 32c:	0d e0       	ldi	r16, 0x0D	; 13
+ 32e:	90 91 00 01 	lds	r25, 0x0100
+ 332:	90 93 01 01 	sts	0x0101, r25
+ 336:	86 b1       	in	r24, 0x06	; 6
+ 338:	81 70       	andi	r24, 0x01	; 1
+ 33a:	80 93 00 01 	sts	0x0100, r24
+ 33e:	88 23       	and	r24, r24
+ 340:	31 f4       	brne	.+12     	; 0x34e <main+0x36>
+ 342:	99 23       	and	r25, r25
+ 344:	21 f0       	breq	.+8      	; 0x34e <main+0x36>
+ 346:	1f 5f       	subi	r17, 0xFF	; 255
+ 348:	14 36       	cpi	r17, 0x64	; 100
+ 34a:	08 f0       	brcs	.+2      	; 0x34e <main+0x36>
+ 34c:	10 e0       	ldi	r17, 0x00	; 0
+ 34e:	81 2f       	mov	r24, r17
+ 350:	90 e0       	ldi	r25, 0x00	; 0
+ 352:	6b e0       	ldi	r22, 0x0B	; 11
+ 354:	71 e0       	ldi	r23, 0x01	; 1
+ 356:	4a e0       	ldi	r20, 0x0A	; 10
+ 358:	50 e0       	ldi	r21, 0x00	; 0
+ 35a:	0e 94 cc 01 	call	0x398	; 0x398 <itoa>
+ 35e:	f0 92 0d 01 	sts	0x010D, r15
+ 362:	00 93 0e 01 	sts	0x010E, r16
+ 366:	0e 94 c6 00 	call	0x18c	; 0x18c <config_tx_nRF24L01>
+ 36a:	80 91 0b 01 	lds	r24, 0x010B
+ 36e:	80 93 06 01 	sts	0x0106, r24
+ 372:	80 91 0c 01 	lds	r24, 0x010C
+ 376:	80 93 07 01 	sts	0x0107, r24
+ 37a:	80 91 0d 01 	lds	r24, 0x010D
+ 37e:	80 93 08 01 	sts	0x0108, r24
+ 382:	80 91 0e 01 	lds	r24, 0x010E
+ 386:	80 93 09 01 	sts	0x0109, r24
+ 38a:	0e 94 f6 00 	call	0x1ec	; 0x1ec <tx_data_nRF24L01>
+ 38e:	82 e3       	ldi	r24, 0x32	; 50
+ 390:	90 e0       	ldi	r25, 0x00	; 0
+ 392:	0e 94 52 00 	call	0xa4	; 0xa4 <delay_ms>
+ 396:	cb cf       	rjmp	.-106    	; 0x32e <main+0x16>
 
-00000356 <_exit>:
- 356:	f8 94       	cli
+00000398 <itoa>:
+ 398:	fb 01       	movw	r30, r22
+ 39a:	9f 01       	movw	r18, r30
+ 39c:	e8 94       	clt
+ 39e:	42 30       	cpi	r20, 0x02	; 2
+ 3a0:	c4 f0       	brlt	.+48     	; 0x3d2 <itoa+0x3a>
+ 3a2:	45 32       	cpi	r20, 0x25	; 37
+ 3a4:	b4 f4       	brge	.+44     	; 0x3d2 <itoa+0x3a>
+ 3a6:	4a 30       	cpi	r20, 0x0A	; 10
+ 3a8:	29 f4       	brne	.+10     	; 0x3b4 <itoa+0x1c>
+ 3aa:	97 fb       	bst	r25, 7
+ 3ac:	1e f4       	brtc	.+6      	; 0x3b4 <itoa+0x1c>
+ 3ae:	90 95       	com	r25
+ 3b0:	81 95       	neg	r24
+ 3b2:	9f 4f       	sbci	r25, 0xFF	; 255
+ 3b4:	64 2f       	mov	r22, r20
+ 3b6:	77 27       	eor	r23, r23
+ 3b8:	0e 94 fd 01 	call	0x3fa	; 0x3fa <__udivmodhi4>
+ 3bc:	80 5d       	subi	r24, 0xD0	; 208
+ 3be:	8a 33       	cpi	r24, 0x3A	; 58
+ 3c0:	0c f0       	brlt	.+2      	; 0x3c4 <itoa+0x2c>
+ 3c2:	89 5d       	subi	r24, 0xD9	; 217
+ 3c4:	81 93       	st	Z+, r24
+ 3c6:	cb 01       	movw	r24, r22
+ 3c8:	00 97       	sbiw	r24, 0x00	; 0
+ 3ca:	a1 f7       	brne	.-24     	; 0x3b4 <itoa+0x1c>
+ 3cc:	16 f4       	brtc	.+4      	; 0x3d2 <itoa+0x3a>
+ 3ce:	5d e2       	ldi	r21, 0x2D	; 45
+ 3d0:	51 93       	st	Z+, r21
+ 3d2:	10 82       	st	Z, r1
+ 3d4:	c9 01       	movw	r24, r18
+ 3d6:	0c 94 ed 01 	jmp	0x3da	; 0x3da <strrev>
 
-00000358 <__stop_program>:
- 358:	ff cf       	rjmp	.-2      	; 0x358 <__stop_program>
+000003da <strrev>:
+ 3da:	dc 01       	movw	r26, r24
+ 3dc:	fc 01       	movw	r30, r24
+ 3de:	67 2f       	mov	r22, r23
+ 3e0:	71 91       	ld	r23, Z+
+ 3e2:	77 23       	and	r23, r23
+ 3e4:	e1 f7       	brne	.-8      	; 0x3de <strrev+0x4>
+ 3e6:	32 97       	sbiw	r30, 0x02	; 2
+ 3e8:	04 c0       	rjmp	.+8      	; 0x3f2 <strrev+0x18>
+ 3ea:	7c 91       	ld	r23, X
+ 3ec:	6d 93       	st	X+, r22
+ 3ee:	70 83       	st	Z, r23
+ 3f0:	62 91       	ld	r22, -Z
+ 3f2:	ae 17       	cp	r26, r30
+ 3f4:	bf 07       	cpc	r27, r31
+ 3f6:	c8 f3       	brcs	.-14     	; 0x3ea <strrev+0x10>
+ 3f8:	08 95       	ret
+
+000003fa <__udivmodhi4>:
+ 3fa:	aa 1b       	sub	r26, r26
+ 3fc:	bb 1b       	sub	r27, r27
+ 3fe:	51 e1       	ldi	r21, 0x11	; 17
+ 400:	07 c0       	rjmp	.+14     	; 0x410 <__udivmodhi4_ep>
+
+00000402 <__udivmodhi4_loop>:
+ 402:	aa 1f       	adc	r26, r26
+ 404:	bb 1f       	adc	r27, r27
+ 406:	a6 17       	cp	r26, r22
+ 408:	b7 07       	cpc	r27, r23
+ 40a:	10 f0       	brcs	.+4      	; 0x410 <__udivmodhi4_ep>
+ 40c:	a6 1b       	sub	r26, r22
+ 40e:	b7 0b       	sbc	r27, r23
+
+00000410 <__udivmodhi4_ep>:
+ 410:	88 1f       	adc	r24, r24
+ 412:	99 1f       	adc	r25, r25
+ 414:	5a 95       	dec	r21
+ 416:	a9 f7       	brne	.-22     	; 0x402 <__udivmodhi4_loop>
+ 418:	80 95       	com	r24
+ 41a:	90 95       	com	r25
+ 41c:	bc 01       	movw	r22, r24
+ 41e:	cd 01       	movw	r24, r26
+ 420:	08 95       	ret
+
+00000422 <_exit>:
+ 422:	f8 94       	cli
+
+00000424 <__stop_program>:
+ 424:	ff cf       	rjmp	.-2      	; 0x424 <__stop_program>
